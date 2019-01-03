@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class solution {
@@ -39,5 +41,34 @@ public class solution {
                 r--;
         }
         return maxarea;
+    }
+
+    //Q54:螺旋矩阵
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> list = new ArrayList<>();
+        if(matrix==null||matrix.length==0) return list;
+        int len_y = matrix.length;
+        int len_x = matrix[0].length;
+        int top = 0, bottom = len_y-1, left = 0, right = len_x-1;
+        while(top<=bottom&&left<=right){
+            if(top==bottom){
+                for(int i=left;i<=right;i++)
+                    list.add(matrix[top][i]);
+            }else if(left==right){
+                for(int i=top;i<=bottom;i++)
+                    list.add(matrix[i][left]);
+            }else{
+                for(int i=left;i<=right;i++)
+                    list.add(matrix[top][i]);
+                for(int i=top+1;i<=bottom;i++)
+                    list.add(matrix[i][right]);
+                for(int i=right-1;i>=left;i--)
+                    list.add(matrix[bottom][i]);
+                for(int i=bottom-1;i>top;i--)
+                    list.add(matrix[i][left]);
+            }
+            top++;bottom--;left++;right--;
+        }
+        return list;
     }
 }
