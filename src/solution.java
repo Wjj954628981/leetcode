@@ -84,4 +84,13 @@ public class solution {
         }
         return result;
     }
+
+    //多个成对筷子，取出其中单独一只
+    public int kuaizi(int[] n){
+        int tmp = 0;
+        for(int i=0;i<n.length;i++){
+            tmp ^= n[i];
+        }
+        return tmp;
+    }
 }
