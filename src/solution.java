@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class solution {
 
@@ -92,5 +89,21 @@ public class solution {
             tmp ^= n[i];
         }
         return tmp;
+    }
+
+    //Q970：强整数
+    public List<Integer> powerfulIntegers(int x, int y, int bound) {
+        Set<Integer> s = new HashSet<>();
+        for(int i=0;i<bound;i++){
+            int tmp = (int) Math.pow(x, i);
+            if(tmp>bound)break;
+            for(int j=0;j<=bound;j++){
+                int tmp1 = tmp + (int) Math.pow(y,j);
+                if(tmp1>bound)break;
+                else s.add(tmp1);
+            }
+        }
+        List<Integer> ret = new ArrayList<>(s);
+        return ret;
     }
 }
