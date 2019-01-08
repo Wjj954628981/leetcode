@@ -11,5 +11,8 @@ public class main {
         System.out.println(sol.kuaizi(input2));
 
         System.out.println(sol.powerfulIntegers(2, 3, 10));
+
+        int input3[] = {-2,0,3,-1,4,0,3,4,1,1,1,-3,-5,4,0};
+        System.out.println(sol.threeSum(input3));
     }
 }

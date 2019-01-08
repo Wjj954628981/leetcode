@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class solution {
 
@@ -104,6 +105,43 @@ public class solution {
             }
         }
         List<Integer> ret = new ArrayList<>(s);
+        return ret;
+    }
+
+    //Q15:三数之和
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> ret = new ArrayList<>();
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length;i++){
+            if(i!=0&&nums[i]==nums[i-1])continue;
+            if(nums[i]>0)break;
+            int l = i + 1;
+            int r = nums.length - 1;
+            while(l<r){
+                if(nums[r]<0)break;
+                int s = nums[i] + nums[l] + nums[r];
+                if(s==0){
+                    List<Integer> tmp = new ArrayList<>();
+                    tmp.add(nums[i]);
+                    tmp.add(nums[l]);
+                    tmp.add(nums[r]);
+                    ret.add(tmp);
+                    int numL = nums[l];
+                    while(numL == nums[l]){
+                        l++;
+                        if(l>=r)break;
+                    }
+                    int numR = nums[r];
+                    while(numR == nums[r]){
+                        r--;
+                        if(l>=r)break;
+                    }
+                }else if(s>0)
+                    r--;
+                else
+                    l++;
+            }
+        }
         return ret;
     }
 }
