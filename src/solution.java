@@ -155,4 +155,26 @@ public class solution {
         }
         return true;
     }
+
+    //Q56:合并区间
+    public List<Interval> merge(List<Interval> intervals) {
+        if(intervals == null || intervals.size() <= 1){
+            return intervals;
+        }
+        Collections.sort(intervals, new IntervalComparator());
+        LinkedList<Interval> ret = new LinkedList<>();
+        for (Interval tmp:intervals){
+            if(ret.isEmpty() || ret.getLast().end<tmp.start){
+                ret.add(tmp);
+            }else{
+                ret.getLast().end = Math.max(ret.getLast().end, tmp.end);
+            }
+        }
+        return ret;
+    }
+    private class IntervalComparator implements Comparator<Interval> {
+        public int compare(Interval I1, Interval I2) {
+            return I1.start-I2.start;
+        }
+    }
 }
