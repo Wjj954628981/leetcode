@@ -27,5 +27,7 @@ public class main {
         input4.add(tmp3);
         input4.add(tmp4);
         sol.merge(input4);
+
+        System.out.println(sol.maximumSwap(9973));
     }
 }
