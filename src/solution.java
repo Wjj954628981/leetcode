@@ -451,4 +451,46 @@ public class solution {
         max = Math.max(length, max);
         return max;
     }
+
+    //Q4:寻找两个有序数组的中位数
+    //给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
+    //
+    //请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。
+    //
+    //你可以假设 nums1 和 nums2 不会同时为空。
+    //
+    //示例 1:
+    //
+    //nums1 = [1, 3]
+    //nums2 = [2]
+    //
+    //则中位数是 2.0
+    //示例 2:
+    //
+    //nums1 = [1, 2]
+    //nums2 = [3, 4]
+    //
+    //则中位数是 (2 + 3)/2 = 2.5
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int length1 = nums1.length, length2 = nums2.length, pos1 = 0, pos2 = 0, k = 0;
+        int[] ret = new int[length1 + length2];
+        while(pos1 < length1 && pos2 < length2){
+            if(nums1[pos1] <= nums2[pos2]){
+                ret[k++] = nums1[pos1++];
+            }else{
+                ret[k++] = nums2[pos2++];
+            }
+        }
+        if(pos1 == length1){
+            while(pos2 < length2){
+                ret[k++] = nums2[pos2++];
+            }
+        }
+        if(pos2 == length2){
+            while(pos1 < length1){
+                ret[k++] = nums1[pos1++];
+            }
+        }
+        return ((double)(ret[(length1+length2-1)/2]+ret[(length1+length2)/2]))/2;
+    }
 }

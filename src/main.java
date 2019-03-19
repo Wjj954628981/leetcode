@@ -19,7 +19,9 @@ public class main {
 
 //        addTwoNumbersTest(sol);
 
-        lengthOfLongestSubstringTest(sol);
+//        lengthOfLongestSubstringTest(sol);
+
+        findMedianSortedArraysTest(sol);
     }
 
     private static void twoSumTest(solution sol){
@@ -83,8 +85,15 @@ public class main {
         System.out.println(result.toString());
     }
 
-    private  static void lengthOfLongestSubstringTest(solution sol){
+    private static void lengthOfLongestSubstringTest(solution sol){
         int ret = sol.lengthOfLongestSubstring("abc");
+        System.out.println(ret);
+    }
+
+    private static void findMedianSortedArraysTest(solution sol){
+        int[] nums1 = {1, 2};
+        int[] nums2 = {3, 4};
+        double ret = sol.findMedianSortedArrays(nums1, nums2);
         System.out.println(ret);
     }
 }
