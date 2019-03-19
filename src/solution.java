@@ -413,8 +413,42 @@ public class solution {
     //输入: "pwwkew"
     //输出: 3
     //解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
-    //     请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
+    //请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
     public int lengthOfLongestSubstring(String s) {
+        if(s.isEmpty())return 0;
+        Map<Character, Integer> map = new HashMap<>();
+        int left = -1, ret = 0;
+        char val;
+        for(int i=0;i<s.length();i++){
+            val = s.charAt(i);
+            if(map.get(val) != null)
+                left = Math.max(left, map.get(val));
+            ret = Math.max(ret, i-left);
+            map.put(val, i);
+//            System.out.println(i + "===" + val + "===" + ret + "===" + left + "===" + map.toString());
+        }
+        return ret;
+    }
 
+    public int lengthOfLongestSubstring2(String s) {
+        int max = 0;
+        int length = 0;
+        char val;
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < s.length(); ++i) {
+            val = s.charAt(i);
+            Integer index = map.get(val);
+            if (index == null) {
+                ++length;
+            } else if (index < i - length) {
+                ++length;
+            } else {
+                max = Math.max(length, max);
+                length = i-index;
+            }
+            map.put(val, i);
+        }
+        max = Math.max(length, max);
+        return max;
     }
 }

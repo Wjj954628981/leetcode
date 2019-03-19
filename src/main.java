@@ -17,7 +17,9 @@ public class main {
 
 //        maximumSwapTest(sol);
 
-        addTwoNumbersTest(sol);
+//        addTwoNumbersTest(sol);
+
+        lengthOfLongestSubstringTest(sol);
     }
 
     private static void twoSumTest(solution sol){
@@ -79,5 +81,10 @@ public class main {
 
         ListNode result = sol.addTwoNumbers(l1_root, l2_root);
         System.out.println(result.toString());
+    }
+
+    private  static void lengthOfLongestSubstringTest(solution sol){
+        int ret = sol.lengthOfLongestSubstring("abc");
+        System.out.println(ret);
     }
 }
