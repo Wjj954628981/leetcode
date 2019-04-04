@@ -493,4 +493,56 @@ public class solution {
         }
         return ((double)(ret[(length1+length2-1)/2]+ret[(length1+length2)/2]))/2;
     }
+
+    //Q200:岛屿的个数
+    //给定一个由 '1'（陆地）和 '0'（水）组成的的二维网格，计算岛屿的数量。一个岛被水包围，并且它是通过水平方向或垂直方向上相邻的陆地连接而成的。你可以假设网格的四个边均被水包围。
+    //
+    //示例 1:
+    //
+    //输入:
+    //11110
+    //11010
+    //11000
+    //00000
+    //
+    //输出: 1
+    //示例 2:
+    //
+    //输入:
+    //11000
+    //11000
+    //00100
+    //00011
+    //
+    //输出: 3
+    public int numIslands(char[][] grid) {
+        int n = grid.length;
+        if(n == 0) return 0;
+        int m = grid[0].length;
+        int count = 0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(grid[i][j] == '1'){
+                    dfs(i,j,grid);
+                    count ++ ;
+                }
+            }
+        }
+        return count;
+    }
+    public void dfs(int i,int j,char[][] grid){
+        grid[i][j] = '2';
+        if(i > 0 && grid[i-1][j] == '1'){
+            dfs(i-1,j,grid);
+        }
+        if(j > 0 && grid[i][j-1] == '1'){
+            dfs(i,j-1,grid);
+        }
+        if(i < grid.length-1 && grid[i+1][j] == '1'){
+            dfs(i+1,j,grid);
+        }
+        if(j < grid[0].length-1 && grid[i][j+1] == '1'){
+            dfs(i,j+1,grid);
+        }
+    }
 }

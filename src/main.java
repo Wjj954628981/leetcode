@@ -21,7 +21,9 @@ public class main {
 
 //        lengthOfLongestSubstringTest(sol);
 
-        findMedianSortedArraysTest(sol);
+//        findMedianSortedArraysTest(sol);
+
+        numIslandsTest(sol);
     }
 
     private static void twoSumTest(solution sol){
@@ -94,6 +96,16 @@ public class main {
         int[] nums1 = {1, 2};
         int[] nums2 = {3, 4};
         double ret = sol.findMedianSortedArrays(nums1, nums2);
+        System.out.println(ret);
+    }
+
+    private static void numIslandsTest(solution sol){
+        char grid[][] = {
+                {'1', '1', '0', '0', '0'},
+                {'1', '1', '0', '0', '0'},
+                {'0', '0', '1', '0', '0'},
+                {'0', '0', '0', '1', '1'}};
+        int ret = sol.numIslands(grid);
         System.out.println(ret);
     }
 }
