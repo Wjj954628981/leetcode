@@ -23,7 +23,9 @@ public class main {
 
 //        findMedianSortedArraysTest(sol);
 
-        numIslandsTest(sol);
+//        numIslandsTest(sol);
+
+        findPeakElementTest(sol);
     }
 
     private static void twoSumTest(solution sol){
@@ -106,6 +108,12 @@ public class main {
                 {'0', '0', '1', '0', '0'},
                 {'0', '0', '0', '1', '1'}};
         int ret = sol.numIslands(grid);
+        System.out.println(ret);
+    }
+
+    private static void findPeakElementTest(solution sol){
+        int[] nums = {1,2,1,3,5,6,4};
+        int ret = sol.findPeakElement(nums);
         System.out.println(ret);
     }
 }
