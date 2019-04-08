@@ -25,7 +25,9 @@ public class main {
 
 //        numIslandsTest(sol);
 
-        findPeakElementTest(sol);
+//        findPeakElementTest(sol);
+
+        largestRectangleAreaTest(sol);
     }
 
     private static void twoSumTest(solution sol){
@@ -114,6 +116,13 @@ public class main {
     private static void findPeakElementTest(solution sol){
         int[] nums = {1,2,1,3,5,6,4};
         int ret = sol.findPeakElement(nums);
+        System.out.println(ret);
+    }
+
+    private static void largestRectangleAreaTest(solution sol){
+//        int[] nums = {2,1,5,6,2,3};
+        int[] nums = {1};
+        int ret = sol.largestRectangleArea(nums);
         System.out.println(ret);
     }
 }
