@@ -31,7 +31,9 @@ public class main {
 
 //        longestArithSeqLengthTest(sol);
 
-        maxAncestorDiffTest(sol);
+//        maxAncestorDiffTest(sol);
+
+        isValidBSTTest(sol);
     }
 
     private static void twoSumTest(solution sol){
@@ -156,6 +158,39 @@ public class main {
         node4.right = node10;
         node6.left = node11;
         int ret = sol.maxAncestorDiff(root);
+        System.out.println(ret);
+    }
+
+    private static void isValidBSTTest(solution sol){
+        TreeNode a = new TreeNode(10);
+        TreeNode b = new TreeNode(5);
+        TreeNode c = new TreeNode(15);
+        TreeNode d = new TreeNode(6);
+        TreeNode e = new TreeNode(20);
+        a.left = b;a.right = c;
+        c.left = d;c.right = e;
+
+        TreeNode a1 = new TreeNode(2);
+        TreeNode b1 = new TreeNode(1);
+        TreeNode c1 = new TreeNode(3);
+        a1.left = b1;a1.right = c1;
+
+        TreeNode a2 = new TreeNode(3);
+        TreeNode b2 = new TreeNode(1);
+        TreeNode c2 = new TreeNode(5);
+        TreeNode d2 = new TreeNode(0);
+        TreeNode e2 = new TreeNode(2);
+        TreeNode f2 = new TreeNode(4);
+        TreeNode g2 = new TreeNode(6);
+        a2.left = b2; a2.right = c2;
+        b2.left = d2; b2.right = e2;
+        c2.left = f2; c2.right = g2;
+
+        TreeNode a3 = new TreeNode(-2147483648);
+        TreeNode b4 = new TreeNode(2147483647);
+        a3.right = b4;
+
+        boolean ret = sol.isValidBST(a3);
         System.out.println(ret);
     }
 }
