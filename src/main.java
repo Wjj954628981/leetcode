@@ -33,7 +33,9 @@ public class main {
 
 //        maxAncestorDiffTest(sol);
 
-        isValidBSTTest(sol);
+//        isValidBSTTest(sol);
+
+        removeNthFromEndTest(sol);
     }
 
     private static void twoSumTest(solution sol){
@@ -192,5 +194,17 @@ public class main {
 
         boolean ret = sol.isValidBST(a3);
         System.out.println(ret);
+    }
+
+    private static void removeNthFromEndTest(solution sol){
+//        ListNode n1 = new ListNode(1);
+//        ListNode n2 = new ListNode(2);
+//        ListNode n3 = new ListNode(3);
+//        ListNode n4 = new ListNode(4);
+//        ListNode n5 = new ListNode(5);
+//        n1.next = n2;n2.next = n3;n3.next = n4;n4.next = n5;
+//        ListNode ret = sol.removeNthFromEnd(n1, 2);
+        ListNode l1 = new ListNode(1);
+        System.out.println(sol.removeNthFromEnd(l1, 1));
     }
 }
