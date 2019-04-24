@@ -35,7 +35,8 @@ public class main {
 
 //        isValidBSTTest(sol);
 
-        removeNthFromEndTest(sol);
+//        removeNthFromEndTest(sol);
+        flattenTest(sol);
     }
 
     private static void twoSumTest(solution sol){
@@ -206,5 +207,25 @@ public class main {
 //        ListNode ret = sol.removeNthFromEnd(n1, 2);
         ListNode l1 = new ListNode(1);
         System.out.println(sol.removeNthFromEnd(l1, 1));
+    }
+
+    private static void flattenTest(solution sol){
+        Node[] arr = new Node[12];
+        for (int i=0; i<12; i++){
+            arr[i] = new Node(i+1, null, null, null);
+        }
+        arr[0].next = arr[1];
+        arr[1].next = arr[2];arr[1].prev = arr[0];
+        arr[2].next = arr[3];arr[2].prev = arr[1];arr[2].child = arr[6];
+        arr[3].next = arr[4];arr[3].prev = arr[2];
+        arr[4].next = arr[5];arr[4].prev = arr[3];
+
+        arr[6].next = arr[7];
+        arr[7].next = arr[8];arr[7].prev = arr[6];arr[7].child = arr[10];
+        arr[8].next = arr[9];arr[8].prev = arr[7];
+
+        arr[10].next = arr[11];
+
+        System.out.println(sol.flatten(arr[0]));
     }
 }
