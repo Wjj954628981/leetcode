@@ -944,4 +944,19 @@ public class solution {
         if((a & b) == 0) return a ^ b;
         return getSum(a ^ b, (a & b) << 1);
     }
+
+    //将手中的牌，一张放至桌面，一张放到牌底，直到手牌为空，且桌面顺序排放
+    //例如手牌为1 9 2 6 3 8 4 7 5
+    //放到桌面为1 2 3 4 5 6 7 8 9，符合条件
+    //实现：将手牌当作队列，将上述过程完全逆反操作
+    public Queue<Integer> releaseHandCard(int n){
+        Queue<Integer> queue = new LinkedList<>();
+        for(int i = n; i > 0; i--){
+            if(!queue.isEmpty()){
+                queue.add(((LinkedList<Integer>) queue).pop());
+            }
+            queue.add(i);
+        }
+        return queue;
+    }
 }
