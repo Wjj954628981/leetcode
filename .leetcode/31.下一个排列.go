@@ -3,7 +3,7 @@
  *
  * [31] 下一个排列
  */
- func nextPermutation(nums []int) {
+func nextPermutation(nums []int) {
 	len := len(nums)
 	i := len - 2
 	j := len - 1
