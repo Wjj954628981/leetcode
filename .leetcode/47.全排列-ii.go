@@ -3,14 +3,14 @@
  *
  * [47] 全排列 II
  */
- func permuteUnique(nums []int) [][]int {
+func permuteUnique(nums []int) [][]int {
 	var ret [][]int
 	len := len(nums)
 	var backtrace func(nums []int, first int)
 	var isDupl func(nums []int, start int, end int) bool
 
 	isDupl = func(nums []int, start int, end int) bool {
-		for i:=start;i<end;i++{
+		for i := start; i < end; i++ {
 			if nums[i] == nums[end] {
 				return false
 			}
