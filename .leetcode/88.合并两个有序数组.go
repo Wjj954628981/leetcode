@@ -27,13 +27,16 @@ func QuickSort(nums []int) {
 
 func merge(nums1 []int, m int, nums2 []int, n int) {
 	if m == 0 {
-		copy(nums1[:n-1], nums2[:n-1])
+		copy(nums1, nums2)
 		return
 	}
 	if n == 0 {
 		return
 	}
-	p1, p2, p := m-1, n-1, m+n-1
+	var p1 = m - 1
+	var p2 = n - 1
+	var p = m + n - 1
+
 	for p1 >= 0 && p2 >= 0 {
 		if nums1[p1] < nums2[p2] {
 			nums1[p] = nums2[p2]
@@ -44,8 +47,6 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 		}
 		p--
 	}
-	for i := 0; i < p2; i++ {
-		nums1[i] = nums2[i]
-	}
+	copy(nums1[:p2+1], nums2)
 }
 
