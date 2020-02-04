@@ -959,4 +959,38 @@ public class solution {
         }
         return queue;
     }
+
+    //Q138:复制带随机指针的链表
+    HashMap<RandomListNode, RandomListNode> visited = new HashMap<>();
+
+    public RandomListNode getClonedNode(RandomListNode node) {
+        if (node != null) {
+            if (this.visited.containsKey(node)) {
+                return this.visited.get(node);
+            } else {
+                this.visited.put(node, new RandomListNode(node.val));
+                return this.visited.get(node);
+            }
+        }
+        return null;
+    }
+
+    public RandomListNode copyRandomList(RandomListNode head) {
+        if (head == null) {
+            return null;
+        }
+        RandomListNode oldNode = head;
+
+        RandomListNode newNode = new RandomListNode(oldNode.val);
+        this.visited.put(oldNode, newNode);
+
+        while (oldNode != null) {
+            newNode.random = this.getClonedNode(oldNode.random);
+            newNode.next = this.getClonedNode(oldNode.next);
+
+            oldNode = oldNode.next;
+            newNode = newNode.next;
+        }
+        return this.visited.get(head);
+    }
 }
