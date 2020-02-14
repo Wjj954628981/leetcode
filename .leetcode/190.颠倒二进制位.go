@@ -50,6 +50,8 @@
  */
 
 // @lc code=start
+
+//x & 1可以获得x最后一位是什么
 func reverseBits(num uint32) uint32 {
 	var ret uint32
 	for i := 0; i < 32; i++ {

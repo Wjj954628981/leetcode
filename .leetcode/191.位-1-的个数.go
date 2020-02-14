@@ -68,7 +68,7 @@
 //	return cnt
 //}
 
-//给力
+//x & x-1可以去掉x的最后一位1
 func hammingWeight(num uint32) int {
 	var cnt int
 	for num != 0 {
