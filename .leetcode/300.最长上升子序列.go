@@ -42,6 +42,7 @@ func lengthOfLIS(nums []int) int {
 		}
 		return b
 	}
+	//dp[i]的值代表以nums[i]结尾的最长子序列长度
 	var dp = make([]int, length)
 	dp[0] = 1
 	var result = 1
